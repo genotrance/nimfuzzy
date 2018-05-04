@@ -11,12 +11,14 @@ Nimfuzz can be installed via [Nimble](https://github.com/nim-lang/nimble):
 
 > git clone https://github.com/genotrance/nimfuzz
 > cd nimfuzz
-> nimble install
+> nimble install -y
 ```
 
 This will download, wrap and install nimfuzz in the standard Nimble package location, typically ~/.nimble. Once installed, it can be imported into any Nim program.
 
 __Usage__
+
+Module documentation can be found [here](http://nimgen.genotrance.com/nimfuzz).
 
 ```nim
 import nimfuzz/fts_fuzzy_match
