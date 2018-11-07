@@ -7,11 +7,7 @@ __Installation__
 Nimfuzz can be installed via [Nimble](https://github.com/nim-lang/nimble):
 
 ```
-> nimble install nimgen
-
-> git clone https://github.com/genotrance/nimfuzz
-> cd nimfuzz
-> nimble install -y
+> nimble install nimfuzz
 ```
 
 This will download, wrap and install nimfuzz in the standard Nimble package location, typically ~/.nimble. Once installed, it can be imported into any Nim program.

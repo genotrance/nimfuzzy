@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.3"
+version       = "0.1.4"
 author        = "genotrance"
 description   = "Fuzzy search wrapper for Nim"
 license       = "MIT"
@@ -9,19 +9,23 @@ skipDirs = @["tests"]
 
 # Dependencies
 
-requires "nimgen >= 0.1.4"
+requires "nimgen >= 0.4.0"
 
-import distros
+var
+  name = "nimfuzz"
+  cmd = when defined(Windows): "cmd /c " else: ""
 
-var cmd = ""
-if detectOs(Windows):
-    cmd = "cmd /c "
+mkDir(name)
 
-task setup, "Download and generate":
-    exec cmd & "nimgen nimfuzz.cfg"
+task setup, "Checkout and generate":
+  if gorgeEx(cmd & "nimgen").exitCode != 0:
+    withDir(".."):
+      exec "nimble install nimgen -y"
+  exec cmd & "nimgen " & name & ".cfg"
 
 before install:
-    setupTask()
+  setupTask()
 
-task test, "Test nimfuzz":
-    exec "nim cpp --passC:\"-DFTS_FUZZY_MATCH_IMPLEMENTATION\" -r tests/fuzztest.nim"
+task test, "Run tests":
+  exec "nim cpp --passC:\"-DFTS_FUZZY_MATCH_IMPLEMENTATION\" -r tests/fuzztest.nim"
+
