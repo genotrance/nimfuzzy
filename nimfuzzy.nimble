@@ -12,10 +12,11 @@ skipDirs = @["tests"]
 requires "nimgen >= 0.4.0"
 
 var
-  name = "nimfuzz"
+  name = "nimfuzzy"
   cmd = when defined(Windows): "cmd /c " else: ""
 
-mkDir(name)
+if fileExists(name & ".nimble"):
+  mkDir(name)
 
 task setup, "Checkout and generate":
   if gorgeEx(cmd & "nimgen").exitCode != 0:

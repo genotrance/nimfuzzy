@@ -1,4 +1,4 @@
-nimfuzz
+nimfuzzy
 nimcache
 *.exe
 *.swp
