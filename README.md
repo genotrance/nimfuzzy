@@ -14,7 +14,7 @@ This will download, wrap and install nimfuzzy in the standard Nimble package loc
 
 __Usage__
 
-Module documentation can be found [here](http://nimgen.genotrance.com/nimfuzzy).
+Module documentation can be found [here](http://nimgen.genotrance.com/nimfuzz).
 
 ```nim
 import nimfuzzy/fts_fuzzy_match
